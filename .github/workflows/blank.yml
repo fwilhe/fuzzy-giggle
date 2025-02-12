@@ -29,4 +29,4 @@ jobs:
         uses: gardenlinux/glvd-triage-cli@action
         with:
           triage_file: sample.yaml
-          pat: ${{ secrets.GITHUB_TOKEN }}
+          pat: ${{ secrets.PAT }}
