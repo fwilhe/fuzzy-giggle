@@ -23,24 +23,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - uses: actions/checkout@main
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo amd64
-
-
-  # This workflow contains a single job called "build"
-  build-arm:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-24.04-arm
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo arm64
-
+      - name: Create GLRD nightly release
+        uses: gardenlinux/glvd-triage-cli@action
+        with:
+          triage_file: sample.yaml
